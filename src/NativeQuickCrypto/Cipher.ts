@@ -1,5 +1,5 @@
 import type { BinaryLike } from 'src/Utils';
-import type { Buffer } from '@craftzdog/react-native-buffer';
+import type { Buffer } from 'react-native-buffer';
 
 // TODO(osp) on node this is defined on the native side
 // Need to do the same so that values are always in sync

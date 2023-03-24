@@ -1,5 +1,5 @@
 import { NativeQuickCrypto } from './NativeQuickCrypto/NativeQuickCrypto';
-import { Buffer } from '@craftzdog/react-native-buffer';
+import { Buffer } from 'react-native-buffer';
 import { BinaryLike, binaryLikeToArrayBuffer } from './Utils';
 
 const WRONG_PASS =

@@ -77,7 +77,7 @@ module.exports = {
 +       alias: {
 +         'crypto': 'react-native-quick-crypto',
 +         'stream': 'stream-browserify',
-+         'buffer': '@craftzdog/react-native-buffer',
++         'buffer': 'react-native-buffer',
 +       },
 +     },
 +   ],
@@ -90,7 +90,7 @@ Then restart your bundler using `yarn start --reset-cache`.
 
 Now, all imports for `crypto` will be resolved as `react-native-quick-crypto` instead.
 
-> 💡 Since react-native-quick-crypto depends on `stream` and `buffer`, we can resolve those to `stream-browserify` and @craftzdog's `react-native-buffer` (which is faster than `buffer` because it uses JSI for base64 encoding and decoding).
+> 💡 Since react-native-quick-crypto depends on `stream` and `buffer`, we can resolve those to `stream-browserify` and alexdonh's `react-native-buffer` (which is faster than `buffer` because it uses JSI for base64 encoding and decoding).
 
 ## Usage
 
