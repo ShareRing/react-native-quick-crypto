@@ -1,7 +1,7 @@
 import { describe, it } from '../../MochaRNAdapter';
 import chai from 'chai';
-import { QuickCrypto } from 'react-native-quick-crypto';
-import { Buffer } from '@craftzdog/react-native-buffer';
+import crypto from 'react-native-quick-crypto';
+import { Buffer } from 'react-native-buffer';
 import type { Done } from 'mocha';
 
 function ab2str(buf: ArrayBuffer) {
@@ -96,14 +96,14 @@ export const pbkdf2RegisterTests = () => {
 
   describe('pbkdf2 tests', () => {
     it(' defaults to sha1 and handles buffers', (done: Done) => {
-      var resultSync = QuickCrypto.pbkdf2Sync('password', 'salt', 1, 32);
+      var resultSync = crypto.pbkdf2Sync('password', 'salt', 1, 32);
       chai
         .expect(ab2str(resultSync))
         .to.eql(
           '0c60c80f961f0e71f3a9b524af6012062fe037a6e0f0eb94fe8fc46bdc637164'
         );
 
-      QuickCrypto.pbkdf2(
+      crypto.pbkdf2(
         Buffer.from('password'),
         Buffer.from('salt'),
         1,
@@ -124,14 +124,14 @@ export const pbkdf2RegisterTests = () => {
     it('should throw if no callback is provided', function () {
       chai
         // @ts-expect-error
-        .expect(QuickCrypto.pbkdf2('password', 'salt', 1, 32, 'sha1'))
+        .expect(crypto.pbkdf2('password', 'salt', 1, 32, 'sha1'))
         .to.throw(/No callback provided to pbkdf2/);
     });
 
     it('should throw if the password is not a string or an ArrayBuffer', function () {
       chai
         // @ts-expect-error
-        .expect(QuickCrypto.pbkdf2(['a'], 'salt', 1, 32, 'sha1'))
+        .expect(crypto.pbkdf2(['a'], 'salt', 1, 32, 'sha1'))
         .to.throw(
           /Password must be a string, a Buffer, a typed array or a DataView/
         );
@@ -140,7 +140,7 @@ export const pbkdf2RegisterTests = () => {
     it(' should throw if the salt is not a string or an ArrayBuffer', function () {
       chai
         // @ts-expect-error
-        .expect(QuickCrypto.pbkdf2('a', ['salt'], 1, 32, 'sha1'))
+        .expect(crypto.pbkdf2('a', ['salt'], 1, 32, 'sha1'))
         .to.throw(
           /Salt must be a string, a Buffer, a typed array or a DataView/
         );
@@ -199,7 +199,7 @@ export const pbkdf2RegisterTests = () => {
           expected;
 
         it(' async w/ ' + description, (done: Done) => {
-          QuickCrypto.pbkdf2(
+          crypto.pbkdf2(
             key,
             salt,
             f.iterations,
@@ -219,7 +219,7 @@ export const pbkdf2RegisterTests = () => {
         });
 
         it('sync w/ ' + description, function () {
-          var result = QuickCrypto.pbkdf2Sync(
+          var result = crypto.pbkdf2Sync(
             key,
             salt,
             f.iterations,
@@ -237,7 +237,7 @@ export const pbkdf2RegisterTests = () => {
           function noop() {}
           chai
             .expect(
-              QuickCrypto.pbkdf2(
+              crypto.pbkdf2(
                 f.key,
                 f.salt,
                 f.iterations,
@@ -252,7 +252,7 @@ export const pbkdf2RegisterTests = () => {
         it(' sync w/' + description, function () {
           chai
             .expect(
-              QuickCrypto.pbkdf2Sync(
+              crypto.pbkdf2Sync(
                 f.key,
                 f.salt,
                 f.iterations,

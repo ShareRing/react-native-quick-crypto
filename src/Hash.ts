@@ -4,7 +4,7 @@ import { NativeQuickCrypto } from './NativeQuickCrypto/NativeQuickCrypto';
 import type { InternalHash } from './NativeQuickCrypto/hash';
 import { Encoding, toArrayBuffer } from './Utils';
 import Stream from 'stream-browserify';
-import { Buffer } from '@craftzdog/react-native-buffer';
+import { Buffer } from 'react-native-buffer';
 interface HashOptionsBase extends Stream.TransformOptions {
   outputLength?: number | undefined;
 }

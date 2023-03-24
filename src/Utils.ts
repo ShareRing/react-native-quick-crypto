@@ -1,4 +1,4 @@
-import { Buffer } from '@craftzdog/react-native-buffer';
+import { Buffer } from 'react-native-buffer';
 
 export type BinaryLike = string | ArrayBuffer | Buffer;
 

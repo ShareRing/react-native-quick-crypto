@@ -29,7 +29,7 @@ import { InternalCipher, RSAKeyVariant } from './NativeQuickCrypto/Cipher';
 //   // CipherOCBOptions,
 // } from 'crypto'; // Node crypto typings
 import { StringDecoder } from 'string_decoder';
-import { Buffer } from '@craftzdog/react-native-buffer';
+import { Buffer } from 'react-native-buffer';
 import { Buffer as SBuffer } from 'safe-buffer';
 import { constants } from './constants';
 import {
