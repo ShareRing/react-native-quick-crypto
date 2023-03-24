@@ -103,7 +103,7 @@ export const pbkdf2RegisterTests = () => {
           '0c60c80f961f0e71f3a9b524af6012062fe037a6e0f0eb94fe8fc46bdc637164'
         );
 
-        crypto.pbkdf2(
+      crypto.pbkdf2(
         Buffer.from('password'),
         Buffer.from('salt'),
         1,

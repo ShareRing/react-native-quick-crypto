@@ -5038,7 +5038,7 @@ react-native-codegen@^0.0.7:
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
 
-react-native-fast-base64@^0.1.1:
+react-native-fast-base64@^0.1.1, react-native-fast-base64@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/react-native-fast-base64/-/react-native-fast-base64-0.1.2.tgz#1f2c88a8b07b543b2f9057c98e1ed2f7e960444f"
   integrity sha512-LBwGGdAQirfU++1r4DX1ufkWKUhY6wwVEbVhyH247YXeubW0jxl7+yl8xlOchz6W/J1KFzXrGTcMiHlv+OpIig==
