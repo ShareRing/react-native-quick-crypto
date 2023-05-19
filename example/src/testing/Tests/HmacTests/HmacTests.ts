@@ -1,4 +1,3 @@
-/* eslint-disable jest/valid-expect */
 // copied from https://github.com/nodejs/node/blob/master/test/parallel/test-crypto-hmac.js
 import crypto from 'react-native-quick-crypto';
 import { Buffer } from 'react-native-buffer';
@@ -37,7 +36,6 @@ export function registerHmacTests() {
 
       // If the key is a Buffer, test Hmac with a key object as well.
       const keyWrappers = [
-        // eslint-disable-next-line no-shadow
         (key: any) => key,
         //    ...(typeof key === 'string' ? [] : [crypto.createSecretKey]),
       ];
