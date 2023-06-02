@@ -12,6 +12,7 @@ enum DSASigEnc {
 import {
   BinaryLike,
   binaryLikeToArrayBuffer,
+  BinaryToTextEncoding,
   getDefaultEncoding,
 } from './Utils';
 import { preparePrivateKey, preparePublicOrPrivateKey } from './keys';
@@ -63,7 +64,8 @@ class Verify extends Stream.Writable {
   }
 
   update(data: BinaryLike, encoding?: string) {
-    encoding = encoding ?? (typeof data === 'string' ? 'utf8' : getDefaultEncoding());
+    encoding =
+      encoding ?? (typeof data === 'string' ? 'utf8' : getDefaultEncoding());
     data = binaryLikeToArrayBuffer(data, encoding);
     this.internal.update(data);
     return this;
@@ -78,7 +80,8 @@ class Verify extends Stream.Writable {
       padding?: number;
       saltLength?: number;
     },
-    signature: BinaryLike
+    signature: BinaryLike,
+    signature_format?: BinaryToTextEncoding
   ): boolean {
     if (!options) {
       throw new Error('Crypto sign key required');
@@ -98,7 +101,7 @@ class Verify extends Stream.Writable {
       format,
       type,
       passphrase,
-      binaryLikeToArrayBuffer(signature),
+      binaryLikeToArrayBuffer(signature, signature_format),
       rsaPadding,
       pssSaltLength,
       dsaSigEnc
@@ -122,7 +125,8 @@ class Sign extends Stream.Writable {
   }
 
   update(data: BinaryLike, encoding?: string) {
-    encoding = encoding ?? (typeof data === 'string' ? 'utf8' : getDefaultEncoding());
+    encoding =
+      encoding ?? (typeof data === 'string' ? 'utf8' : getDefaultEncoding());
     data = binaryLikeToArrayBuffer(data, encoding);
     this.internal.update(data);
     return this;
