@@ -10,9 +10,9 @@ enum DSASigEnc {
 }
 
 import {
-  BinaryLike,
+  type BinaryLike,
   binaryLikeToArrayBuffer,
-  BinaryToTextEncoding,
+  type BinaryToTextEncoding,
   getDefaultEncoding,
 } from './Utils';
 import { preparePrivateKey, preparePublicOrPrivateKey } from './keys';
@@ -42,6 +42,7 @@ function getDSASignatureEncoding(options: any) {
 function getIntOption(name: string, options: any) {
   const value = options[name];
   if (value !== undefined) {
+    // eslint-disable-next-line no-bitwise
     if (value === value >> 0) {
       return value;
     }
